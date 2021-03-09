@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Optional, Tuple, TypeVar
 
 import torch
+from torch.distributed import destroy_process_group
 from pytorch_lightning import Trainer, seed_everything
 from pytorch_lightning.callbacks import ModelCheckpoint
 from pytorch_lightning.loggers import TensorBoardLogger
@@ -237,6 +238,7 @@ def model_train(config: ModelConfigBase,
     # Hence, restore the original environment after training.
     os.environ.clear()
     os.environ.update(old_environ)
+    destroy_process_group()
 
     if world_size and isinstance(lightning_model, ScalarLightning):
         if is_azureml_run and world_size > 1:
