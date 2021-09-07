@@ -1,0 +1,6 @@
+selector:
+  type: ['PosteriorBasedSelector']
+  model_name: 'Vanilla'
+  model_config_path: 'DataSelection/configs/models/cifar10h_noise_15/resnet.yaml'
+tensorboard:
+  save_events: False

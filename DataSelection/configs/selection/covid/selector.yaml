@@ -1,0 +1,8 @@
+selector:
+  type: ['PosteriorBasedSelector']
+  model_name: 'Self_supervised'
+  model_config_path: 'DataSelection/configs/models/covid/covid_self_supervised.yaml'
+  burnout_period: 1
+  number_samples_to_relabel: 300
+tensorboard:
+  save_events: False

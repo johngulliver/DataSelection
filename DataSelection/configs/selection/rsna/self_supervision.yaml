@@ -1,0 +1,6 @@
+selector:
+  type: ['PosteriorBasedSelector', 'GraphBasedSelector']
+  model_name: 'Self-Supervision'
+  model_config_path: 'DataSelection/configs/models/rsna/self_supervised.yaml'
+tensorboard:
+  save_events: False

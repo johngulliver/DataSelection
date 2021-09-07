@@ -1,0 +1,7 @@
+selector:
+  type: ['PosteriorBasedSelector']
+  model_name: 'Coteaching'
+  model_config_path: 'DataSelection/configs/models/rsna/densenet121_scratch_coteaching.yaml'
+  burnout_period: 15
+tensorboard:
+  save_events: False

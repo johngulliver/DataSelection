@@ -1,1 +1,0 @@
-{"model_name": "HelloContainer", "checkpoint_paths": ["checkpoints/best_checkpoint.ckpt"], "model_configs_namespace": "InnerEye.ML.configs.other.HelloContainer"}

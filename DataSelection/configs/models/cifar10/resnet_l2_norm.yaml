@@ -1,0 +1,65 @@
+device: cuda
+cudnn:
+  benchmark: True
+  deterministic: True
+dataset:
+  name: CIFAR10
+model:
+  type: cifar
+  name: resnet
+  init_mode: kaiming_fan_out
+  resnet:
+    depth: 110
+    initial_channels: 16
+    block_type: basic
+    apply_l2_norm: True
+
+train:
+  seed: 1
+  
+  batch_size: 256
+  optimizer: sgd
+  base_lr: 0.1
+  momentum: 0.9
+  nesterov: True
+  weight_decay: 1e-4
+  output_dir: cifar10/resnet/l2norm
+  log_period: 100
+  checkpoint_period: 100
+  
+  dataloader:
+    num_workers: 2
+    drop_last: True
+    pin_memory: False
+validation:
+  batch_size: 256
+  dataloader:
+    num_workers: 2
+    drop_last: False
+    pin_memory: False
+test:
+  batch_size: 256
+  dataloader:
+    num_workers: 2
+    pin_memory: False
+scheduler:
+  epochs: 160
+  type: multistep
+  milestones: [80, 120]
+  lr_decay: 0.1
+  warmup:
+    type: linear
+    epochs: 5 
+augmentation:
+  use_random_crop: True
+  use_random_horizontal_flip: True
+  use_label_smoothing: False
+  random_horizontal_flip:
+    prob: 0.5
+
+  
+  
+  
+
+
+

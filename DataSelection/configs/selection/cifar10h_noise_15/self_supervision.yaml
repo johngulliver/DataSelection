@@ -1,0 +1,6 @@
+selector:
+  type: ['PosteriorBasedSelector']
+  model_name: 'Self-Supervision'
+  model_config_path: 'DataSelection/configs/models/cifar10h_noise_15/resnet_self_supervision.yaml'
+tensorboard:
+  save_events: False

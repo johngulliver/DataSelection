@@ -1,2 +1,0 @@
-[alias]
-    deepclean = clean -xfd --exclude=.idea/

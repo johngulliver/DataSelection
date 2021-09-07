@@ -1,0 +1,64 @@
+device: cuda
+cudnn:
+  benchmark: True
+  deterministic: True
+dataset:
+  name: COVID
+  dataset_dir: /datadrive/uhb
+  n_channels: 3
+  n_classes: 2
+  csv_to_ignore: /datadrive/uhb/excluded_cases_v2.csv
+model:
+  type: rsna
+  name: densenet121
+train:
+  pretrained: False
+  resume_epoch: 19
+  restore_scheduler: False
+  seed: 0
+  
+  batch_size: 32
+  optimizer: adam
+  base_lr: 0.001
+  output_dir: experiments/covid/pretrained/coteaching
+  use_co_teaching: True
+  co_teaching_forget_rate: 0.10
+  co_teaching_num_warmup: 0
+  log_period: 5
+  checkpoint_period: 2
+  
+  dataloader:
+    num_workers: 0
+    drop_last: False
+    pin_memory: False
+validation:
+  batch_size: 32
+  dataloader:
+    num_workers: 0
+    drop_last: False
+    pin_memory: False
+scheduler:
+  epochs: 30
+  type: multistep
+  milestones: [10, 15]
+  lr_decay: 1.0
+preprocess:
+  center_crop_size: 224
+  resize: 256
+augmentation:
+  use_random_horizontal_flip: True
+  use_random_affine: True
+  use_random_color: False
+  random_horizontal_flip:
+    prob: 0.5
+  random_affine:
+    max_angle: 5
+    max_horizontal_shift: 0.05
+    max_vertical_shift: 0.05
+    max_shear: 0
+
+  
+  
+  
+
+

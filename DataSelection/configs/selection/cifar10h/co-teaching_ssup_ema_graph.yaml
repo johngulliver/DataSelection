@@ -1,0 +1,7 @@
+selector:
+  type: ['PosteriorBasedSelector']
+  model_name: 'Coteaching-EMA-SSup-Graph'
+  model_config_path: 'DataSelection/configs/models/cifar10h/resnet_co_teaching_ssup_ema_graph.yaml'
+  burnout_period: 50
+tensorboard:
+  save_events: False
